@@ -1,0 +1,141 @@
+body {background: linear-gradient( to bottom right, white,
+#bcbdc4);height: 2000px;background: #3089D6}
+
+.header1{position: fixed;
+		width: 100%;
+		height: 100px;
+		top: 0;
+		left:0;
+		color: white;
+		font-family: verdana;
+		-webkit-box-shadow: 0 3px 8px rgba(0,0,0, .25);
+	}
+/*need to fix email and password so it doesnt move*/
+.header {position: fixed;
+		width: 100%;
+		height: 100px;
+		top: 0;
+		left:0;
+		background: #3089D6;
+		color: white;
+		font-family: verdana;
+}
+
+/*Here comes a lot of copy+paste*/
+#form1 {
+	left:700px;
+	top: 20px;
+	height: 60px;
+	width: 180px;
+}
+
+#form2{left:900px;
+	top: 20px;
+	height: 60px;
+	width: 200px;
+}
+
+#linkList {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    width: 190px;
+    position: absolute;
+    top: 350px;
+    right: 0;
+    font-size: 90%;
+}
+
+#linkList ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#lselect ul,
+#larchives ul,
+#lresources ul {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+#linkList li {
+    display: block;
+    padding: 8px 0 7px 12px;
+    margin: 0;
+    line-height: 160%;
+    border-bottom: 1px solid #FFF;
+}
+
+#linkList li a {
+    color: #FFFFFF;
+    font: bold 110% arial, helvectica, sans-serif;
+}
+
+#linkList li:hover {
+    background-color: #7E8459;
+    background-position: 0 0;
+}
+
+#linkList li:hover a {
+    color: #FFF;
+}
+
+#lselect {
+    color: #377774;
+}
+
+#lselect li:hover {
+    color: #656565;
+}
+
+#lselect li a {
+    text-transform: uppercase;
+    font: bold 110% arial, helvectica, sans-serif;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#lselect li:hover a {
+    color: #FFF;
+}
+
+#lselect li a.c:link,
+#lselect li a.c:visited {
+    display: inline;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 100%;
+    color: #377774;
+}
+
+#lselect li:hover a.c {
+    color: #FFB9CB;
+}
+
+.box{
+	height: 250px;
+	width: 150px;
+	border: 2px solid black;
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.box1{
+	height: 700px;
+	width: 900px;
+	border: 1px solid black;
+	margin-left: 150px;
+	margin-top: 10px;
+	overflow: scroll
+}
+
+.iframe{
+	height: 600px;
+	width: 900px;
+	border: 1px solid black;
+	margin-top: 100px;
+	margin-left: 150px;
+	}
