@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+    /*text-align: center; and also i wanted to center
+    the whole page content*/
+
+
+.dice{
+	float:left;
+	width:32px;
+	background:#F5F5F5;
+	border:#999 1px solid;
+	padding:10px;
+	font-size:24px;
+	text-align:center;
+	margin:5px;
+}
+
+#bracketid{
+    border: 5px solid grey;
+    float: left;
+
+}
+
+#bracket2{
+    border: 5px solid grey;
+    float: left;
+}
+#padding{
+    
+}
+
+</style>
+<script>
+    
+        //Here i needed another box to put the two 
+        //rollboxes inside and put the header 
+        //Player1&2 above it
+    var player1 = prompt("Please enter first player");
+    var player2 = prompt("Please enter second player");
+document.write(player1," versus ",player2);
+/*document.write("<br> versus <br>")
+document.write(player2)*/
+    //I did the function rolldice first
+    //dublicated the rolldice and finished it in boxes #bracket2
+    //next i needed to get the prompt command right
+    //I also somehow wanted to change the document.write
+    //to be centered and big, but i didnt know how
+
+function rollDice1(){
+    var die1 = document.getElementById("die1");
+    var die2 = document.getElementById("die2");
+    var die3 = document.getElementById("die3");
+    var status = document.getElementById("status");
+    var d1 = Math.floor(Math.random() * 6) + 1;
+    var d2 = Math.floor(Math.random() * 6) + 1;
+    var d3 = Math.floor(Math.random() * 6) + 1;
+    diceTotal = d1 + d2 + d3; // it was var diceTotal, but that
+    die1.innerHTML = d1;     //didnt function with the compare1
+    die2.innerHTML = d2;        //so i made it global!
+    die3.innerHTML = d3;
+    status.innerHTML = "You rolled "+diceTotal+".";
+    }
+
+    function rollDice2(){
+    var die4 = document.getElementById("die4");
+    var die5 = document.getElementById("die5");
+    var die6 = document.getElementById("die6");
+    var status1 = document.getElementById("status1");
+    var d4 = Math.floor(Math.random() * 6) + 1;
+    var d5 = Math.floor(Math.random() * 6) + 1;
+    var d6 = Math.floor(Math.random() * 6) + 1;
+    diceTotal1 = d4 + d5 + d6;
+    die4.innerHTML = d4;
+    die5.innerHTML = d5;
+    die6.innerHTML = d6;
+    status1.innerHTML = "You rolled "+diceTotal1+".";
+    }
+        //Working on the alert message
+    //function winner looooooops..
+    
+    /*var diceTotal1=diceTotal1.innerHTML;
+    var diceTotal=diceTotal.innerHTML;
+
+
+        while(diceTotal!=0 && diceTotal1!=0) {
+            window.alert("player 1 has won!")
+        }
+        if(diceTotal1>diceTotal){
+            window.alert("player 2 has won!")
+        }
+    } 
+
+    //^this failed hard so down here i did right
+
+    //}*/
+    function compare1(){
+        /*var diceTotal1=document.getElementById("diceTotal1");
+        var diceTotal=document.getElementById("diceTotal");*/
+        if(diceTotal1>diceTotal){
+            window.alert("Player 2 has won!")}
+        if(diceTotal1<diceTotal){
+            window.alert("Player 1 has won!")}
+            else{window.alert("It is a Draw!")}; 
+    }  //finally it functions! Problem is >if player 2 wins it also displays the message it is a Draw hmm??
+
+    //getting bonuspoints random backgroundcolor
+    function ran_col(){ 
+                var color='#';
+                var letters=['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0'];
+                color += letters[Math.floor(Math.random() * letters.length)];
+                document.getElementById('posts').style.background = color;
+            } //Ok the random coloring doesnt function
+</script> 
+</head>
+<body onload="ran_col();">
+<div id="padding">
+
+<div id="bracketid">
+
+<div id="die1" class="dice">0</div>
+<div id="die2" class="dice">0</div>
+<div id="die3" class="dice">0</div>
+<button onclick="rollDice1()">Roll Dice</button>
+<h2 id="status" style="clear:left;"></h2>
+</div>
+
+<div id="bracket2">
+
+<div id="die4" class="dice">0</div>
+<div id="die5" class="dice">0</div>
+<div id="die6" class="dice">0</div>
+<button onclick="rollDice2()">Roll Dice</button>
+<h2 id="status1" style="clear:left;"></h2>
+
+<button onclick="compare1()">Compare</button>
+
+</div>
+</div>
+
+
+</body>
+</html>
