@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>The Dice Game</title>
+<link rel="stylesheet" type="text/css" href="Codereview2.css">
+</head>
+<script>
+	var player1 = prompt("Please enter first player");
+    var player2 = prompt("Please enter second player");
+	    console.log(player1);
+	    console.log(player2);
+	
+	function start(){
+
+		str= player1+" versus "+player2;
+		console.log(str);
+		document.getElementById("topScript").innerHTML= str;
+	}
+
+	function rollDice1(){
+	    var die1 = document.getElementById("die1");
+	    var die2 = document.getElementById("die2");
+	    var die3 = document.getElementById("die3");
+	    var status = document.getElementById("status");
+	    var d1 = Math.floor(Math.random() * 6) + 1;
+	    var d2 = Math.floor(Math.random() * 6) + 1;
+	    var d3 = Math.floor(Math.random() * 6) + 1;
+	    diceTotal = d1 + d2 + d3; 
+	    die1.innerHTML = d1;
+	    die2.innerHTML = d2;       
+	    die3.innerHTML = d3;
+	    status.innerHTML = "You rolled "+diceTotal+".";
+    }
+
+    function rollDice2(){
+	    var die4 = document.getElementById("die4");
+	    var die5 = document.getElementById("die5");
+	    var die6 = document.getElementById("die6");
+	    var status1 = document.getElementById("status1");
+	    var d4 = Math.floor(Math.random() * 6) + 1;
+	    var d5 = Math.floor(Math.random() * 6) + 1;
+	    var d6 = Math.floor(Math.random() * 6) + 1;
+	    diceTotal1 = d4 + d5 + d6;
+	    die4.innerHTML = d4;
+	    die5.innerHTML = d5;
+	    die6.innerHTML = d6;
+	    status1.innerHTML = "You rolled "+diceTotal1+".";
+	}
+
+
+    function compare1(){
+    	if(diceTotal1>diceTotal){
+            window.alert("Player 2 has won!")}
+        if(diceTotal1<diceTotal){
+            window.alert("Player 1 has won!")}
+         if (diceTotal1==diceTotal)
+            {window.alert("It is a Draw!")}; 
+    }
+
+	function randomColor(){
+		var r=Math.floor(Math.random()*256);
+		var g=Math.floor(Math.random()*256);
+		var b=Math.floor(Math.random()*256);
+		var result= "rgb("+r+","+g+","+b+")";
+		document.body.style.background=result;
+	//document.getElementById('bla').innerHTML='hallo';
+	}
+
+    </script> 
+	
+	<body onload="randomColor();start();">
+		
+		<h1>The Dice Game</h1>
+		<br>
+		
+		<p id="topScript"></p>
+		<br>
+		
+	
+	<div id="bracket3">
+
+		<div id="bracket1">
+
+			<div id="die1" class="dice">0</div>
+			<div id="die2" class="dice">0</div>
+			<div id="die3" class="dice">0</div>
+			<button onclick="rollDice1()">Roll Dice</button>
+
+		<h2 id="status" style="clear:left;"></h2>
+		
+		</div>
+
+		<div id="bracket2">
+
+			<div id="die4" class="dice">0</div>
+			<div id="die5" class="dice">0</div>
+			<div id="die6" class="dice">0</div>
+			<button onclick="rollDice2()">Roll Dice</button>
+
+		<h2 id="status1" style="clear:left;"></h2>
+
+		</div>
+	
+	</div>
+		<br>
+		<button onclick="compare1()">Compare</button>
+
+	</body>
+	</html>
