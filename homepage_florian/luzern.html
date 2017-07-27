@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+ <!-- <link rel="stylesheet" type="text/css" href="ourcss.css"> -->
+ <link rel="stylesheet" type="text/css" href="ourcss3.css">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body onload='initMap()'>
+  <script type="text/javascript">
+    var array_Luzern = [{
+          "name": "Wasserturm",
+          "lat": 47.0512648,
+          "long": 8.3050688,
+        },
+        {
+          "name": "Vierwaldstättersee",
+          "lat": 47.025146,
+          "long": 8.382207,
+          "weekendOpen": "false"
+        }];
+    function initMap() {
+            var myLatLng = {lat: 47.027463, lng: 8.378416};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 11,
+              center: myLatLng
+            });
+            markerArray=[];
+            for(i=0;i<array_Luzern.length;i++){
+              try{
+                if(isNaN(array_Luzern[i].lat) || isNaN(array_Luzern[i].long)){
+                    throw 'Not a number';
+                }
+                var myLatLng = {lat: array_Luzern[i].lat, lng: array_Luzern[i].long};
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: array_Luzern[i].name
+                });
+
+
+              }catch(err){
+                //document.write(err);
+              }
+            }
+      }
+
+
+  </script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB354KVzn-lG2xR5CTaT2a9phbE6NOz6lM&callback=initMap">
+  </script>
+  <div id='container'>
+      <header>
+        <nav>
+        <a href="https://www.codefactory.wien/">Codefactory</a>
+        <a href="blog1.html">Blog</a>
+        <a href="index.html">Projects</a>
+        <a href="aboutMe.html">About me</a>
+        </nav>
+      </header>
+    <main class="blog_overflow">
+      <div id='mainWrapper'>
+        <div id='col1'>
+          <div id='col1_wrapper'>
+
+          </div>
+        </div>
+        <div id='col2'>
+          <div id='col2_wrapper_luzern'>
+            <h2>Luzern</h2>
+            <article>
+              <p>Eine der schönsten Städte Europas muss wohl das in der Schweiz gelegene Luzern sein.<img class='luzern1' src='img/DSC00559.JPG'></p>
+<p>Diese rund siebzig Tausend Einwohner zählende Stadt, ist nicht nur ein sehr beliebter Tourismusort, sondern auch das Verwaltungszentrum der Zentralschweiz. Mit ihrer fast tausend Jahre alten Geschichte verfügt Luzern sowohl über weitreichende Wanderwege in die Natur, eine sehenswerte Altstadt als auch den Komfort und die Einkaufsmöglichkeiten einer modernen, europäischen Stadt.
+
+<p>Insbesondere der Wasserturm ist eine Besichtigung wert.  Der 35 Meter hohe, achteckige Turm ergänzt die ehemalige Stadtbefestigung in Richtung des Sees. Seine Bauzeit lässt sich nicht mit Sicherheit bestimmen, erst 1367 wird er zum ersten Mal in schriftlichen Dokumenten erwähnt.<img class='luzern2' src='img/DSC00336.JPG'></p>
+In den unteren Geschossen des historischen Bauwerks wurden Folterungen durchgeführt und Gefangene verwahrt. Im oberen Stockwerk lag lange Zeit die Schatzkammer der schweizerischen Stadt.
+
+<p>Als besonderes natürliches Erbe der Stadt Luzern, liegt der Vierwaldstättersee direkt vor den ehemaligen Stadtmauern. Deswegen wurde bis ins 16.Jahrhundert der Name Luzernsee verwendet.</p>
+<p>Der Vierwaldstättersee besteht aus mehreren Seebecken und Buchten und erstreckt sich über ein Areal von insgesamt 114 Quadratkilometern. Aufgrund seiner Einbettung in die ihn umgebende Berglandschaft erfreut er sich eines milderen Klimas als der Rest der Schweiz. <img class='luzern3' src= 'img/DSC00702.JPG'> Desweiteren gibt es zahlreiche Segel und Wassersportmöglichkeiten und insbesonders im Sommer lockt der See zahlreiche Gäste zum Baden an. Der Vierwaldstättersee ist Naherholungsgebiet, bietet Trinkwasserqualität und wird auch noch in weiterer Zukunft eine der wichtigsten Ressourcen der Stadt Luzern bleiben. </p>
+
+            </article>
+            <div id="map">
+            </div>
+
+          </div>
+          </div>
+      </div>
+    </main>
+    <footer>
+    <p>Copyright @Codefactory 2017</p>
+    </footer>
+  </div>
+</body>
+
+</html>

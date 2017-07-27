@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+ <!-- <link rel="stylesheet" type="text/css" href="ourcss.css"> -->
+ <link rel="stylesheet" type="text/css" href="ourcss3.css">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body onload='initMap()'>
+<script type="text/javascript"> 
+    var array_Luzern = [{
+          "name": "Pedra do Baú",
+          "lat": -22.688226,
+          "long": -45.660804,
+        },
+        {
+          "name": "Santo Antonio do Pinhal",
+          "lat": -22.822391,
+          "long": -45.668716,
+        }];
+    function initMap() {
+            var myLatLng = {lat: -22.688226, lng: -45.660804};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 9,
+              center: myLatLng
+            });
+            markerArray=[];
+            for(i=0;i<array_Luzern.length;i++){
+              try{
+                if(isNaN(array_Luzern[i].lat) || isNaN(array_Luzern[i].long)){
+                    throw 'Not a number';
+                }
+                var myLatLng = {lat: array_Luzern[i].lat, lng: array_Luzern[i].long};
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: array_Luzern[i].name
+                });
+
+
+              }catch(err){
+                //document.write(err);
+              }
+            }
+      }
+
+
+  </script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB354KVzn-lG2xR5CTaT2a9phbE6NOz6lM&callback=initMap">
+  </script>
+  <div id='container'>
+      <header>
+        <nav>
+        <a href="https://www.codefactory.wien/">Codefactory</a>
+        <a href="blog1.html">Blog</a>
+        <a href="index.html">Projects</a>
+        <a href="aboutMe.html">About me</a>
+        </nav>
+      </header>
+    <main class="blog_overflow">
+      <div id='mainWrapper'>
+        <div id='col1'>
+          <div id='col1_wrapper'>
+
+          </div>
+        </div>
+        <div id='col2'>
+          <div id='col2_wrapper_rio'>
+            <h2>Santo Antonio do Pinhal</h2>
+            <article> <p>Das kleine Städtchen Santo Antonio do Pinhal ist ein beliebter Naherholungsort für gestresste Paulistanos. Auf einem Plateau das gut 1000 m über dem Meeresspiegel liegt und nur eine Stunde entfernt ist von Sao Paulo, liegt der Ort in den beindruckenden Bergen der Serra da Mantiqueira.</p><img class='rio_1' src='img/PC190663.JPG'><br>
+              <p>Aufgrund der stürmischen Winde, bietet die Stadt den Besuchern eine perfekte Möglichkeit zur Abkühlung von der überhitzten Millionenstadt. </p>
+              <p>In idyllischen Landhäusern kann man hier die Ruhe und das Grün der umliegenden Wälder und Wiesen genießen. Das hügelige Land lädt zu kleinen und großen Wanderungen ein, bei denen man immer wieder auf kleine Wasserfälle stoßen kann. Diese bezaubernden Naturereignisse fordern den Besucher immer wieder auf, das grüne Umland zu erkunden.</p>
+              <br>
+              <p>Nur Dreissig Kilometer entfernt von Santo Antonio befindet sich Campos do Jardao, die am höchsten gelegene Stadt Brasiliens. Bekannt ist sie für ihre im schweizer Stil gehaltenen Fachwerkhäuser und die deutsche bzw. schweizerische Küche, welche zum Beispiel im Brauereilokal "Baden Baden" angeboten wird.</p><img class='rio_2' src='img/PC170506.JPG'>
+              <p>Mit dem 1.950 Meter hohe Granitfelsen "Pedra do Baú" und dem dazugeörigem Nationalpark besitzt die Campos do Jardao ein weiteres lohnenswertes Ausflugsziel. Als Tourist, gestresst von der stressigen Millionenstadt Sao Paulo, kann man also bequem mit einem Busfahrticket innerhalb weniger Stunden ins Grüne verreisen.</p>
+
+            </article>
+            <div id="map">
+            </div>
+          </div>
+          </div>
+      </div>
+    </main>
+    <footer>
+    <p>Copyright @Codefactory 2017</p>
+    </footer>
+  </div>
+</body>
+
+</html>
