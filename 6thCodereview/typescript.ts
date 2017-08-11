@@ -1,7 +1,9 @@
+
+	//I first do the superclass
 abstract class Media{
 	title:string;
 	author:string;
-	genre:string;
+	genre:string;		//the needed classes
 	publisher:string;
 	imgSrc:string;
 	rating:number;
@@ -9,11 +11,11 @@ abstract class Media{
 		this.title = title;
 		this.author = author;
 		this.genre = genre;
-		this.publisher = publisher;
+		this.publisher = publisher;  //constructor classes
 		this.imgSrc = imgSrc;
 		this.rating = rating;
 	}
-	render():string{
+	render():string{    //now the superclass-renderfunction 
 		let writeOut:string = '<li>' + 'Title :   ' + this.title + '</li>';
           writeOut += '<li>' + 'Author :  ' + this.author + '</li>';
           writeOut += '<li>' + 'Genre :  ' + this.genre + '</li>';
@@ -22,29 +24,29 @@ abstract class Media{
           writeOut += '<li>' + 'Rating :  ' + this.rating + ' Stars' + '</li>';
           return writeOut;
 	}
-		getImgSrc():string{
+		getImgSrc():string{		//special funct for image and title 
 		return this.imgSrc;
 	}
 		getTitle():string{
 			return this.title;
 		}
 }
-
+	//I start on the subclasses until row 115
 	class Book extends Media{
 		constructor(title:string,author:string,genre:string,publisher:string,imgSrc:string,rating:number){
 			super(title,author,genre,publisher,imgSrc,rating);
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row bookStyle\">";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
 			 writeOut += '</ul>';
-			writeOut += "</div>";
+			writeOut += "</div>";		//special call for Title and Image
 		writeOut += "</div>";
     return writeOut;
 
@@ -57,10 +59,10 @@ class DVD extends Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row dvdStyle\">";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
@@ -78,10 +80,10 @@ class CD extends Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row cdStyle\">";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
@@ -98,10 +100,10 @@ class Comic extends Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row comicStyle\">";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+			writeOut += "<div class=\"col-lg-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
@@ -121,7 +123,7 @@ class Render{
 	secondDVDMedia:Media;
 	firstCDMedia:Media;
 	secondCDMedia:Media;
-	firstComicMedia:Media;
+	firstComicMedia:Media;			//here we see the render function
 	secondComicMedia:Media;
 	newMedia:Media;
 	mediaCounterMap:Map<String,number>;
@@ -139,8 +141,8 @@ class Render{
 	}
 	countTypeOfMedia(){
 		this.mediaCounterMap.set('Books',0);
-		this.mediaCounterMap.set('DVDs',0);
-		this.mediaCounterMap.set('CDs',0);
+		this.mediaCounterMap.set('DVDs',0);		//here is the loop through array
+		this.mediaCounterMap.set('CDs',0);		//the mediaArray[i] is in the HTML at row 62
 		this.mediaCounterMap.set('Comics',0);
 		for(let i=0;i<this.mediaArray.length;i++){
 			if(this.mediaArray[i] instanceof Book){

@@ -29,10 +29,14 @@
 	padding: 15px;
 }
 .cdStyle img{
-	max-width: 350px;
-	max-height: 350px;
+	max-width: 90%;
+	max-height: 90%;
 }
 .comicStyle{
+	background-color: red;
+	padding: 15px;
+}
+.newStyle {
 	background-color: red;
 	padding: 15px;
 }
@@ -53,9 +57,9 @@ h1{
 <body onload='initRender()'>
 	<script src='typescript.js'></script>
 	<script>
-	//here is the test Array
+	//here is the test Array that loads into the typescript.js
 	function initRender(){
-		mediaArray = new Array();
+		mediaArray = new Array(); 
 		firstBookMedia = new Book('Woodwalker Carags Verwandlung','Katja Brandis','Children','Arena','https://images-na.ssl-images-amazon.com/images/I/51szaJXvM5L._SX351_BO1,204,203,200_.jpg',5);
 	secondBookMedia = new Book('Sonne und Beton','Felix Lobrecht','Documentary','Ullstein','https://images-na.ssl-images-amazon.com/images/I/516ULJ5PaHL._SX303_BO1,204,203,200_.jpg',5);
 	firstDVDMedia = new DVD('Der Haftbefehl','Ralph Thomas','Crimi','KSM GmbH','https://images-na.ssl-images-amazon.com/images/I/41NJ8STNSHL._SY445_.jpg',1);
@@ -88,14 +92,14 @@ h1{
 
 	$(function() {
 		$('#media-form').submit(function(event){
-			event.preventDefault();
+			event.preventDefault(); //preventDefault is needed so it doesnt destroy the submitted content on a new submit
 			
-			var titleField = $('titleInput');
-			var authorField = $('authorInput');
-			var genreField = $('genreInput');
-			var publisherField = $('publisherInput');
-			var imgSrcField = $('imgSrcInput');
-			var rateField = $('rateInput');
+			var titleField = $('#titleInput');
+			var authorField = $('#authorInput');
+			var genreField = $('#genreInput');
+			var publisherField = $('#publisherInput');
+			var imgSrcField = $('#imgSrcInput');
+			var rateField = $('#rateInput');
 			var item = {
 				title: titleField.val(),
 				author: authorField.val(),
@@ -104,8 +108,10 @@ h1{
 				image: imgSrcField.val(),
 				rate: Number(rateField.val())
 			}
-			console.log(newMediaObject)
+			console.log(item);
+			console.log(newMediaObject);
 			//First Try to make the new Object render into my  page
+
 			/*newMediaObject.addItem(item);
 			$('#newItem').append('<li>' + 'Title :   ' + item.title + '</li>' + '<li>' + 'Author :   ' + item.author + '</li>' +
 				'<li>' + 'Genre :   ' + item.genre + '</li>' + 
@@ -115,14 +121,23 @@ h1{
 			//Better i try another way with all Bootsstrap components
 			
 			newMediaObject.addItem(item);
-			$('#place').append("<div class=\"row newStyle\">" + "<div class=\"col-lg-6 col-md-6 col-xs-6\">" + "<img class='img-responsive' src=\""+ item.image +"\">" + "</div>" + "<div class=\"col-lg-6 col-md-6 col-xs-6\">" + "<h1>" + item.title + "</h1>" + "<ul>" + '<li>' + 'Title :   ' + item.title + '</li>' + '<li>' + 'Author :   ' + item.author + '</li>' +
+			$('#place').append("<div class=\"row newStyle\">" + "<div class=\"col-lg-6\">" + "<img class='img-responsive' src=\""+ item.image +"\">" + "</div>" + "<div class=\"col-lg-6\">" + "<h1>" + item.title + "</h1>" + "<ul>" + '<li>' + 'Title :   ' + item.title + '</li>' + '<li>' + 'Author :   ' + item.author + '</li>' +
 				'<li>' + 'Genre :   ' + item.genre + '</li>' + 
 				'<li>' + 'Publisher :   ' + item.publisher + '</li>' + 
-				'<li>' + 'Rating :   ' + item.rate + '</li>' + '</ul>' + '</div>' + '</div>')
+				'<li>' + 'Rating :   ' + item.rate + " Stars" + '</li>' + '</ul>' + '</div>' + '</div>')
 		})
-	})
-
+	});
+	/*   Here is a function to scroll to top slowly but id doesnt like 
+			my script so whatever
+	
+	$("#scroll").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#titleInput").offset().top
+    }, 2000);
+});*/
+			//down there you see may bodycontent with the inputfields
 	</script>
+	
 
 	
 	<div class='container-fluid' id='mediaList'>
@@ -139,7 +154,7 @@ h1{
 		<input class="form-control" id="genreInput" placeholder="Please input Genre" type="text">
 		<input class="form-control" id="publisherInput" placeholder="Please insert Publisher" type="text">
 		<input class="form-control" id="imgSrcInput" placeholder="Please input an Imagesource" type="text">
-		<input class="form-control" id="rateInput" placeholder="Please rate the Media" type="number">
+		<input class="form-control" id="rateInput" placeholder="Rate 1 to 5 Stars" type="number">
 		<button class="btn btn-default" id="funct-button" type="submit">Submit</button>
 	</form>
 	</div>
@@ -157,7 +172,13 @@ h1{
 	</div>-->
 
 </div>
-
+<div class='container'>
+	<div class='row'>
+	<div class='col-lg12'>
+		<button class="btn btn-danger" type="button"><a href="#top">Go to top</a></button>
+	</div>
+</div>
+</div>
 
 </body>
 </html>

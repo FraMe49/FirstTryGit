@@ -8,12 +8,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+//I first do the superclass
 var Media = (function () {
     function Media(title, author, genre, publisher, imgSrc, rating) {
         this.title = title;
         this.author = author;
         this.genre = genre;
-        this.publisher = publisher;
+        this.publisher = publisher; //constructor classes
         this.imgSrc = imgSrc;
         this.rating = rating;
     }
@@ -33,6 +34,7 @@ var Media = (function () {
     };
     return Media;
 }());
+//I start on the subclasses until row 115
 var Book = (function (_super) {
     __extends(Book, _super);
     function Book(title, author, genre, publisher, imgSrc, rating) {
@@ -40,15 +42,15 @@ var Book = (function (_super) {
     }
     Book.prototype.render = function () {
         var writeOut = "<div class=\"row bookStyle\">";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
         writeOut += '</ul>';
-        writeOut += "</div>";
+        writeOut += "</div>"; //special call for Title and Image
         writeOut += "</div>";
         return writeOut;
     };
@@ -61,10 +63,10 @@ var DVD = (function (_super) {
     }
     DVD.prototype.render = function () {
         var writeOut = "<div class=\"row dvdStyle\">";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
@@ -82,10 +84,10 @@ var CD = (function (_super) {
     }
     CD.prototype.render = function () {
         var writeOut = "<div class=\"row cdStyle\">";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
@@ -103,10 +105,10 @@ var Comic = (function (_super) {
     }
     Comic.prototype.render = function () {
         var writeOut = "<div class=\"row comicStyle\">";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+        writeOut += "<div class=\"col-lg-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
@@ -132,8 +134,8 @@ var Render = (function () {
     };
     Render.prototype.countTypeOfMedia = function () {
         this.mediaCounterMap.set('Books', 0);
-        this.mediaCounterMap.set('DVDs', 0);
-        this.mediaCounterMap.set('CDs', 0);
+        this.mediaCounterMap.set('DVDs', 0); //here is the loop through array
+        this.mediaCounterMap.set('CDs', 0); //the mediaArray[i] is in the HTML at row 62
         this.mediaCounterMap.set('Comics', 0);
         for (var i = 0; i < this.mediaArray.length; i++) {
             if (this.mediaArray[i] instanceof Book) {
