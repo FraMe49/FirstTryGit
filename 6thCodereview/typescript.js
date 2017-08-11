@@ -40,10 +40,10 @@ var Book = (function (_super) {
     }
     Book.prototype.render = function () {
         var writeOut = "<div class=\"row bookStyle\">";
-        writeOut += "<div class=\"col-lg-6\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 carStyle\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
@@ -61,10 +61,10 @@ var DVD = (function (_super) {
     }
     DVD.prototype.render = function () {
         var writeOut = "<div class=\"row dvdStyle\">";
-        writeOut += "<div class=\"col-lg-6\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 carStyle\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
@@ -82,10 +82,10 @@ var CD = (function (_super) {
     }
     CD.prototype.render = function () {
         var writeOut = "<div class=\"row cdStyle\">";
-        writeOut += "<div class=\"col-lg-6\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 carStyle\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
@@ -103,10 +103,10 @@ var Comic = (function (_super) {
     }
     Comic.prototype.render = function () {
         var writeOut = "<div class=\"row comicStyle\">";
-        writeOut += "<div class=\"col-lg-6\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += "<img class='img-responsive' src=\"" + _super.prototype.getImgSrc.call(this) + "\">";
         writeOut += "</div>";
-        writeOut += "<div class=\"col-lg-6 carStyle\">";
+        writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
         writeOut += '<h1>' + _super.prototype.getTitle.call(this) + '</h1>';
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);

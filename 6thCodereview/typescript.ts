@@ -36,10 +36,10 @@ abstract class Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row bookStyle\">";
-			writeOut += "<div class=\"col-lg-6\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 carStyle\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
@@ -57,10 +57,10 @@ class DVD extends Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row dvdStyle\">";
-			writeOut += "<div class=\"col-lg-6\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 carStyle\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
@@ -78,10 +78,10 @@ class CD extends Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row cdStyle\">";
-			writeOut += "<div class=\"col-lg-6\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 carStyle\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
@@ -98,10 +98,10 @@ class Comic extends Media{
 		}
 		render():string{
 			let writeOut:string = "<div class=\"row comicStyle\">";
-			writeOut += "<div class=\"col-lg-6\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut +="<img class='img-responsive' src=\""+  super.getImgSrc() +"\">";
 			writeOut += "</div>";
-			writeOut += "<div class=\"col-lg-6 carStyle\">";
+			writeOut += "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
 			writeOut += '<h1>' + super.getTitle() + '</h1>';
 			 writeOut += '<ul>';
 			 	writeOut += super.render();
