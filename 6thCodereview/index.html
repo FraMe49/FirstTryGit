@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+.row{
+	margin: 5%;
+}
+.bookStyle{
+	background-color: lightgrey;
+	padding: 15px;
+}
+.dvdStyle{
+	background-color: red;
+	padding: 15px;
+}
+.cdStyle{
+	background-color: red;
+	padding: 15px;
+}
+.cdStyle img{
+	max-width: 350px;
+	max-height: 350px;
+}
+.comicStyle{
+	background-color: red;
+	padding: 15px;
+}
+ul,li{
+	font-family: 'Roboto' , sans-serif;
+	list-style-type: none;
+    font-size: 15pt;
+	
+}
+h1{
+	font-family: 'Roboto' , sans-serif;
+}
+#mediaTop{
+	font-size: 35px;
+}
+</style>
+</head>
+<body onload='initRender()'>
+	<script src='typescript.js'></script>
+	<script>
+	function initRender(){
+		mediaArray = new Array();
+		firstBookMedia = new Book('Woodwalker Carags Verwandlung','Katja Brandis','Children','Arena','https://images-na.ssl-images-amazon.com/images/I/51szaJXvM5L._SX351_BO1,204,203,200_.jpg',5);
+	secondBookMedia = new Book('Sonne und Beton','Felix Lobrecht','Documentary','Ullstein','https://images-na.ssl-images-amazon.com/images/I/516ULJ5PaHL._SX303_BO1,204,203,200_.jpg',5);
+	firstDVDMedia = new DVD('Der Haftbefehl','Ralph Thomas','Crimi','KSM GmbH','https://images-na.ssl-images-amazon.com/images/I/41NJ8STNSHL._SY445_.jpg',1);
+	secondDVDMedia = new DVD('Der Dämon und die Jungfrau','Mario Bava','Horror','EMS GmbH','https://images-na.ssl-images-amazon.com/images/I/71aGRRh3KjL._SY445_.jpg',4);
+	firstCDMedia = new CD("Kanackis",'Haftbefehl','Classic','Azzlackz (Universal Music)','https://images-na.ssl-images-amazon.com/images/I/81whFgcNaPL._SL1400_.jpg',5);
+	secondCDMedia = new CD('Für die Gegnaz!','Tony D','Classic','Aggro Berlin (Universal Music)','https://images-na.ssl-images-amazon.com/images/I/61SiXQ7K%2BdL._SX425_.jpg',5);
+	firstComicMedia = new Comic('Battle Angel Alita - Perfect Edition 1','Yukito Kishiro','Action','Carlsen','https://images-na.ssl-images-amazon.com/images/I/51BhR2o5ILL._SX327_BO1,204,203,200_.jpg',5);
+	secondComicMedia = new Comic('Berserk Max 1','Kentaro Miura','Action','Panini','https://images-na.ssl-images-amazon.com/images/I/51ni81JfXpL._SX359_BO1,204,203,200_.jpg',5);
+	mediaArray.push(firstBookMedia);
+	mediaArray.push(secondBookMedia);
+	mediaArray.push(firstDVDMedia);
+	mediaArray.push(secondDVDMedia);
+	mediaArray.push(firstCDMedia);
+	mediaArray.push(secondCDMedia);
+	mediaArray.push(firstComicMedia);
+	mediaArray.push(secondComicMedia);
+	render = new Render(mediaArray);
+	render.showArray();
+	render.renderAll();
+	render.countTypeOfMedia();
+	};
+	var newMediaObject = {
+		newMediaArray: [],
+
+		addItem: function(item){
+			this.newMediaArray.push(item);
+		}
+	};
+
+	$(function() {
+		$('#media-form').submit(function(event){
+			event.preventDefault();
+			
+			var titleField = $('titleInput');
+			var authorField = $('authorInput');
+			var genreField = $('genreInput');
+			var publisherField = $('publisherInput');
+			var imgSrcField = $('imgSrcInput');
+			var rateField = $('rateInput');
+			var item = {
+				title: titleField.val(),
+				author: authorField.val(),
+				genre: genreField.val(),
+				publisher: publisherField.val(),
+				image: imgSrcField.val(),
+				rate: Number(rateField.val())
+			}
+			console.log(newMediaObject)
+			//First Try to make the new Object render into my  page
+			/*newMediaObject.addItem(item);
+			$('#newItem').append('<li>' + 'Title :   ' + item.title + '</li>' + '<li>' + 'Author :   ' + item.author + '</li>' +
+				'<li>' + 'Genre :   ' + item.genre + '</li>' + 
+				'<li>' + 'Publisher :   ' + item.publisher + '</li>' + 
+				'<li>' + 'Rating :   ' + item.rate + '</li>')*/
+
+			//Better i try another way with all Bootsstrap components
+			
+			/*newMediaObject.addItem(item);
+			$('#place').append("<div class=\"row newStyle\">" + "<div class=\"col-lg-6\">" + "<img class='img-responsive' src=\""+ item.image +"\">" + "</div>" + "<div class=\"col-lg-6\">" + "<h1>" + item.title + "</h1>" + "<ul>" + '<li>' + 'Title :   ' + item.title + '</li>' + '<li>' + 'Author :   ' + item.author + '</li>' +
+				'<li>' + 'Genre :   ' + item.genre + '</li>' + 
+				'<li>' + 'Publisher :   ' + item.publisher + '</li>' + 
+				'<li>' + 'Rating :   ' + item.rate + '</li>' + '</ul>' + '</div>' + '</div>')*/
+		})
+	})
+
+	</script>
+
+	
+	<div class='container-fluid' id='mediaList'>
+	<div class="row">
+	<div class="col-xs-4 col-md-4"></div>
+	<div class="col-xs-4 col-md-4" id="mediaTop"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>My Media</div>
+	<div class="col-xs-4 col-md-4"></div>
+	</div>
+	<div class="row">
+	<div class="col-xs-12 col -md-12">
+	<form id="media-form" class="form-inline">
+		<input class="form-control" id="titleInput" placeholder="Please insert Title" type="text">
+		<input class="form-control" id="authorInput" placeholder="Please insert Author" type="text">
+		<input class="form-control" id="genreInput" placeholder="Please input Genre" type="text">
+		<input class="form-control" id="publisherInput" placeholder="Please insert Publisher" type="text">
+		<input class="form-control" id="imgSrcInput" placeholder="Please input an Imagesource" type="text">
+		<input class="form-control" id="rateInput" placeholder="Please rate the Media" type="number">
+		<button class="btn btn-default" id="funct-button" type="submit">Submit</button>
+	</form>
+	</div>
+	</div>
+	<div id="place">
+	</div>
+	<!--Here i wanted to start new Items but i forgot that it only counts as template-->
+	<!--<div class="container-fluid">
+	<div class="row">
+	<div class="col-lg-6">-->
+
+	<!--</div>
+	</div class="col-lg-6 Listing">
+		<h1 id="getTitle"></h1>
+	</div>-->
+
+</div>
+
+
+</body>
+</html>
